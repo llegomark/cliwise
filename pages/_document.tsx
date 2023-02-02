@@ -8,27 +8,27 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content="Discover Wisdom & Comfort in the Word of God with BetterSelf - the cutting-edge virtual Bible. Get relevant verses from your preferred Bible with a click. Start exploring now!"
+            content="CLIWise is a powerful AI-powered platform that generates equivalent command line interface syntax for popular CLIs such as Git, Linux, FTP, Rclone, AWS CLI, Heroku CLI, Docker CLI, and Azure CLI, making it easier for users to manage their projects from the command line. Get started today!"
           />
-          <meta property="og:site_name" content="Discover Wisdom and Comfort in the Word of God - Better Self" />
+          <meta property="og:site_name" content="Your AI-Powered Command Line Solution - CLIwise" />
           <meta
             property="og:description"
-            content="Discover Wisdom & Comfort in the Word of God with BetterSelf - the cutting-edge virtual Bible. Get relevant verses from your preferred Bible with a click. Start exploring now!"
+            content="CLIWise is a powerful AI-powered platform that generates equivalent command line interface syntax for popular CLIs such as Git, Linux, FTP, Rclone, AWS CLI, Heroku CLI, Docker CLI, and Azure CLI, making it easier for users to manage their projects from the command line. Get started today!"
           />
-          <meta property="og:title" content="Discover Wisdom and Comfort in the Word of God - Better Self" />
+          <meta property="og:title" content="Your AI-Powered Command Line Solution - CLIwise" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Discover Wisdom and Comfort in the Word of God - Better Self" />
+          <meta name="twitter:title" content="Your AI-Powered Command Line Solution - CLIwise" />
           <meta
             name="twitter:description"
-            content="Discover Wisdom & Comfort in the Word of God with BetterSelf - the cutting-edge virtual Bible. Get relevant verses from your preferred Bible with a click. Start exploring now!"
+            content="CLIWise is a powerful AI-powered platform that generates equivalent command line interface syntax for popular CLIs such as Git, Linux, FTP, Rclone, AWS CLI, Heroku CLI, Docker CLI, and Azure CLI, making it easier for users to manage their projects from the command line. Get started today!"
           />
           <meta
             property="og:image"
-            content="https://bible.betterself.app/betterself-featured.png"
+            content="https://cliwise.llego.dev/cliwise-featured.png"
           />
           <meta
             name="twitter:image"
-            content="https://bible.betterself.app/betterself-featured.png"
+            content="https://cliwise.llego.dev/cliwise-featured.png"
           />
         </Head>
         <body>
