@@ -9,9 +9,8 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import LoadingDots from "../components/LoadingDots";
 import ResizablePanel from "../components/ResizablePanel";
-import SquigglyLines from "../components/SquigglyLines";
-import Balancer from "react-wrap-balancer";
 import { useRouter } from "next/router";
+import { InformationCircleIcon } from "@heroicons/react/20/solid";
 
 const Home: NextPage = () => {
   const [response, setResponse] = useState<Record<string, unknown> | null>(
@@ -181,35 +180,22 @@ const Home: NextPage = () => {
       </Head>
 
       <Header />
-      <main className="sm:mt-15 mt-12 flex w-full flex-1 flex-col items-center justify-center px-4 text-center">
-        <h2 className="mx-auto max-w-4xl text-5xl font-bold tracking-normal text-slate-900 sm:text-7xl">
-          <Balancer>
-            Streamline Your Command Line Experience with{" "}
-            <span className="relative whitespace-nowrap text-[#3290EE]">
-              <SquigglyLines />
-              <span className="relative">CLIwise!</span>
-            </span>{" "}
-          </Balancer>
+      <main className="sm:mt-15 mt-12 flex flex-1 flex-col items-center justify-center px-4 text-center">
+        <h2 className="mx-auto max-w-4xl text-5xl font-bold tracking-normal text-slate-900 sm:text-6xl md:text-7xl">
+          Streamline Your Command Line Experience with CLIwise!
         </h2>
-        <p className="mx-auto mt-12 max-w-xl text-lg leading-7 text-slate-900">
-          <Balancer>
-            Say goodbye to manual syntax errors with CLIwise. Our{" "}
-            <span className="font-bold">AI-powered platform</span> generates
-            syntax for Git, Linux and many other command line interfaces with
-            ease, elevating your workflow to the next level. Try it today!
-          </Balancer>
+        <p className="mx-auto mt-12 max-w-xl text-lg leading-7 text-slate-900 sm:text-base lg:text-lg">
+          Say goodbye to manual syntax errors with CLIwise. Our AI-powered
+          platform generates syntax for Git, Linux and many other command line
+          interfaces with ease, elevating your workflow to the next level.
         </p>
-        <div className="max-w-xl w-full">
+        <div className="max-w-xl w-full px-6">
           <div className="flex mt-10 items-center space-x-3">
-            <Image
-              src="/1-black.png"
-              width={30}
-              height={30}
-              alt="1 icon"
-              className="mb-5 sm:mb-0"
-            />
-            <p className="text-left text-base">
-              Enter your plain English command in the textbox below.
+            <span className="text-white bg-black rounded-full w-8 h-8 text-center flex items-center justify-center">
+              1
+            </span>
+            <p className="ml-3 text-left text-base">
+              Type your plain English command.
             </p>
           </div>
           <textarea
@@ -217,18 +203,20 @@ const Home: NextPage = () => {
             onChange={(e) => setSyntax(e.target.value)}
             onInput={limitCharacters}
             rows={4}
-            className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
+            className="w-full mt-5 rounded-lg shadow-sm focus:outline-none focus:shadow-outline"
             placeholder={
               "For example: 'Create a new branch in Git called 'development'."
             }
           />
-          <div className="flex mb-5 items-center space-x-3">
-            <Image src="/2-black.png" width={30} height={30} alt="1 icon" />
-            <p className="text-left text-base">
-              Select a Command Line Interface (CLI)
+          <div className="flex mt-5 items-center space-x-3">
+            <span className="text-white bg-black rounded-full w-8 h-8 text-center flex items-center justify-center">
+              2
+            </span>
+            <p className="ml-3 text-left text-base">
+              Select a Command Line Interface (CLI).
             </p>
           </div>
-          <div className="block">
+          <div className="block mt-3">
             <DropDown
               cliwise={usercommand}
               setCliwise={(newCliwise) => setUsercommand(newCliwise)}
@@ -237,7 +225,7 @@ const Home: NextPage = () => {
 
           {!loading && (
             <button
-              className="bg-black rounded-xl text-white text-base px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
+              className="bg-black rounded-lg text-white text-base px-4 py-2 mt-10 hover:bg-black/80 w-full"
               onClick={(e) => generateSyntax(e)}
               disabled={isDisabled()}
             >
@@ -246,7 +234,7 @@ const Home: NextPage = () => {
           )}
           {loading && (
             <button
-              className="bg-black rounded-xl text-white text-base px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
+              className="bg-black rounded-lg text-white text-base px-4 py-2 mt-10 hover:bg-black/80 w-full"
               disabled
             >
               <LoadingDots color="white" style="large" />
@@ -265,36 +253,37 @@ const Home: NextPage = () => {
               {generatedSyntax && (
                 <>
                   <div>
-                    <h2 className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto">
-                      <Balancer>Equivalent Syntax</Balancer>
+                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mx-auto px-3">
+                      Equivalent Syntax
                     </h2>
                   </div>
-                  <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto">
+                  <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto px-3">
                     {generatedSyntax
                       .substring(generatedSyntax.indexOf("1") + 3)
                       .split(/[1-3]\./)
                       .map((generatedSyntax) => {
                         return (
                           <div
-                            className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
+                            className="bg-sky-200 rounded-xl shadow-md p-4 hover:bg-sky-100 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 cursor-copy border"
                             onClick={() => {
                               navigator.clipboard.writeText(generatedSyntax);
-                              toast("Word of God Copied to Clipboard", {
+                              toast("CLI Command Copied to Clipboard", {
                                 icon: "✂️",
                               });
                             }}
                             key={generatedSyntax}
                           >
-                            <p>
-                              <Balancer>{generatedSyntax}</Balancer>
+                            <p className="text-base leading-tight text-justify">
+                              {generatedSyntax}
                             </p>
                           </div>
                         );
                       })}
-                    <p className="text-gray-500 text-xs mt-2 text-justify">
-                      <Balancer>
+                    <p className="flex bg-yellow-200 p-3 text-justify text-yellow-800 font-light leading-tight rounded-lg text-xs mt-2">
+                      <InformationCircleIcon className="h-4 w-4 mr-2" />
+                      <span>
                         Click the generated syntax to copy it to your clipboard.
-                      </Balancer>
+                      </span>
                     </p>
                   </div>
                 </>

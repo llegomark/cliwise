@@ -7,7 +7,7 @@ import {
 import { Fragment } from "react";
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
+  return classes.join(" ");
 }
 
 export type CliwiseType =
@@ -31,7 +31,6 @@ export type CliwiseType =
   | "Firebase CLI"
   | "DigitalOcean CLI"
   | "Google Cloud Platform CLI";
-  
 
 interface DropDownProps {
   cliwise: CliwiseType;
@@ -91,7 +90,7 @@ export default function DropDown({ cliwise, setCliwise }: DropDownProps) {
           className="absolute left-0 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           key={cliwise}
         >
-          <div className="">
+          <div className="overflow-y-scroll h-32">
             {cliwiseb.map((cliwiseItem) => (
               <Menu.Item key={cliwiseItem}>
                 {({ active }) => (
