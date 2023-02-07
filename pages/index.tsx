@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import DropDown, { CliwiseType } from "../components/DropDown";
@@ -202,6 +201,12 @@ const Home: NextPage = () => {
             value={syntax}
             onChange={(e) => setSyntax(e.target.value)}
             onInput={limitCharacters}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !isDisabled()) {
+                e.preventDefault();
+                generateSyntax(e);
+              }
+            }}
             rows={4}
             className="w-full mt-5 rounded-lg shadow-sm focus:outline-none focus:shadow-outline"
             placeholder={
